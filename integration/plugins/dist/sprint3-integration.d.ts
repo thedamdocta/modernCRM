@@ -1,4 +1,4 @@
-import { GeneratedModule } from './module-creator';
+import { GeneratedModule } from './module-creator.js';
 import { EventEmitter } from 'events';
 export interface GenerationRequest {
     prompt: string;

@@ -1,5 +1,5 @@
 import { Injectable, Controller, Post, Body, HttpException, HttpStatus } from '@nestjs/common';
-import { GeminiClient } from '../../ai-service/gemini-client';
+import GeminiClient from '../gemini-client-mock';
 
 interface PromptRequest {
   prompt: string;

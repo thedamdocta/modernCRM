@@ -1,21 +1,15 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.PluginHotReload = void 0;
-const promises_1 = __importDefault(require("fs/promises"));
-const path_1 = __importDefault(require("path"));
-const events_1 = require("events");
-const fs_1 = require("fs");
-class PluginHotReload extends events_1.EventEmitter {
+import fs from 'fs/promises';
+import path from 'path';
+import { EventEmitter } from 'events';
+import { watch } from 'fs';
+export class PluginHotReload extends EventEmitter {
     constructor() {
         super();
         this.loadedPlugins = new Map();
         this.watchers = new Map();
         this.isWatching = false;
-        this.pluginsConfigPath = path_1.default.join(process.cwd(), 'integration/plugins/plugins.json');
-        this.generatedModulesPath = path_1.default.join(process.cwd(), 'integration/plugins/generated');
+        this.pluginsConfigPath = path.join(process.cwd(), 'integration/plugins/plugins.json');
+        this.generatedModulesPath = path.join(process.cwd(), 'integration/plugins/generated');
     }
     async start() {
         try {
@@ -54,7 +48,7 @@ class PluginHotReload extends events_1.EventEmitter {
     }
     async loadAllPlugins() {
         try {
-            const configContent = await promises_1.default.readFile(this.pluginsConfigPath, 'utf-8');
+            const configContent = await fs.readFile(this.pluginsConfigPath, 'utf-8');
             const config = JSON.parse(configContent);
             this.loadedPlugins.clear();
             for (const plugin of config.plugins || []) {
@@ -79,9 +73,9 @@ class PluginHotReload extends events_1.EventEmitter {
                 metadata: pluginConfig.metadata
             };
             if (pluginConfig.path) {
-                const fullPath = path_1.default.resolve(path_1.default.dirname(this.pluginsConfigPath), pluginConfig.path);
+                const fullPath = path.resolve(path.dirname(this.pluginsConfigPath), pluginConfig.path);
                 try {
-                    await promises_1.default.access(fullPath);
+                    await fs.access(fullPath);
                 }
                 catch {
                     console.warn(`Plugin path not found: ${fullPath}`);
@@ -104,7 +98,7 @@ class PluginHotReload extends events_1.EventEmitter {
     async startWatching() {
         this.watchFile(this.pluginsConfigPath, 'config');
         try {
-            await promises_1.default.access(this.generatedModulesPath);
+            await fs.access(this.generatedModulesPath);
             this.watchDirectory(this.generatedModulesPath, 'generated-modules');
         }
         catch {
@@ -113,7 +107,7 @@ class PluginHotReload extends events_1.EventEmitter {
     }
     watchFile(filePath, watcherName) {
         try {
-            const watcher = (0, fs_1.watch)(filePath, { persistent: true }, async (eventType, filename) => {
+            const watcher = watch(filePath, { persistent: true }, async (eventType, filename) => {
                 if (eventType === 'change') {
                     console.log(`Configuration file changed: ${filename}`);
                     await this.handleConfigChange();
@@ -128,7 +122,7 @@ class PluginHotReload extends events_1.EventEmitter {
     }
     watchDirectory(dirPath, watcherName) {
         try {
-            const watcher = (0, fs_1.watch)(dirPath, { recursive: true, persistent: true }, async (eventType, filename) => {
+            const watcher = watch(dirPath, { recursive: true, persistent: true }, async (eventType, filename) => {
                 if (filename && (filename.endsWith('.json') || filename.endsWith('.ts') || filename.endsWith('.tsx'))) {
                     console.log(`Generated module file changed: ${filename}`);
                     await this.handleModuleChange(filename, eventType);
@@ -144,7 +138,7 @@ class PluginHotReload extends events_1.EventEmitter {
     async handleConfigChange() {
         try {
             console.log('Reloading plugins configuration...');
-            const configContent = await promises_1.default.readFile(this.pluginsConfigPath, 'utf-8');
+            const configContent = await fs.readFile(this.pluginsConfigPath, 'utf-8');
             const config = JSON.parse(configContent);
             const previousPlugins = new Map(this.loadedPlugins);
             const currentPluginIds = new Set();
@@ -188,7 +182,7 @@ class PluginHotReload extends events_1.EventEmitter {
     }
     async handleModuleChange(filename, eventType) {
         try {
-            const pathParts = filename.split(path_1.default.sep);
+            const pathParts = filename.split(path.sep);
             const moduleName = pathParts[0];
             if (!moduleName)
                 return;
@@ -231,7 +225,7 @@ class PluginHotReload extends events_1.EventEmitter {
                 lastUpdated: new Date().toISOString()
             }
         };
-        await promises_1.default.writeFile(this.pluginsConfigPath, JSON.stringify(emptyConfig, null, 2), 'utf-8');
+        await fs.writeFile(this.pluginsConfigPath, JSON.stringify(emptyConfig, null, 2), 'utf-8');
         console.log('Created empty plugins configuration');
     }
     getLoadedPlugins() {
@@ -248,12 +242,12 @@ class PluginHotReload extends events_1.EventEmitter {
                 return false;
             }
             plugin.enabled = enabled;
-            const configContent = await promises_1.default.readFile(this.pluginsConfigPath, 'utf-8');
+            const configContent = await fs.readFile(this.pluginsConfigPath, 'utf-8');
             const config = JSON.parse(configContent);
             const pluginConfig = config.plugins.find((p) => p.id === pluginId);
             if (pluginConfig) {
                 pluginConfig.enabled = enabled;
-                await promises_1.default.writeFile(this.pluginsConfigPath, JSON.stringify(config, null, 2), 'utf-8');
+                await fs.writeFile(this.pluginsConfigPath, JSON.stringify(config, null, 2), 'utf-8');
             }
             this.emit('plugin-toggled', {
                 type: enabled ? 'enabled' : 'disabled',
@@ -270,7 +264,7 @@ class PluginHotReload extends events_1.EventEmitter {
     }
     async reloadPlugin(pluginId) {
         try {
-            const configContent = await promises_1.default.readFile(this.pluginsConfigPath, 'utf-8');
+            const configContent = await fs.readFile(this.pluginsConfigPath, 'utf-8');
             const config = JSON.parse(configContent);
             const pluginConfig = config.plugins.find((p) => p.id === pluginId);
             if (!pluginConfig) {
@@ -305,6 +299,5 @@ class PluginHotReload extends events_1.EventEmitter {
         };
     }
 }
-exports.PluginHotReload = PluginHotReload;
-exports.default = PluginHotReload;
+export default PluginHotReload;
 //# sourceMappingURL=plugin-hot-reload.js.map

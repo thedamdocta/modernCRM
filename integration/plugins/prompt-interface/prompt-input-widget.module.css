@@ -1,0 +1,302 @@
+.promptInputWidget {
+  background: var(--twenty-color-gray-0);
+  border-radius: var(--twenty-border-radius-lg);
+  box-shadow: var(--twenty-shadow-xl);
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: var(--twenty-font-family);
+}
+
+.widgetHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: var(--twenty-spacing-6);
+  border-bottom: 1px solid var(--twenty-color-gray-20);
+}
+
+.headerContent h2 {
+  margin: 0 0 var(--twenty-spacing-2) 0;
+  font-size: var(--twenty-font-size-xl);
+  font-weight: var(--twenty-font-weight-semibold);
+  color: var(--twenty-color-gray-90);
+}
+
+.headerContent p {
+  margin: 0;
+  font-size: var(--twenty-font-size-sm);
+  color: var(--twenty-color-gray-70);
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--twenty-color-gray-50);
+  cursor: pointer;
+  padding: var(--twenty-spacing-1);
+  border-radius: var(--twenty-border-radius-sm);
+}
+
+.closeButton:hover {
+  background: var(--twenty-color-gray-10);
+  color: var(--twenty-color-gray-70);
+}
+
+.widgetContent {
+  padding: var(--twenty-spacing-6);
+}
+
+.suggestionsSection {
+  margin-bottom: var(--twenty-spacing-8);
+}
+
+.suggestionsSection h3 {
+  margin: 0 0 var(--twenty-spacing-4) 0;
+  font-size: var(--twenty-font-size-lg);
+  font-weight: var(--twenty-font-weight-medium);
+  color: var(--twenty-color-gray-90);
+}
+
+.suggestionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--twenty-spacing-4);
+}
+
+.suggestionCard {
+  border: 1px solid var(--twenty-color-gray-20);
+  border-radius: var(--twenty-border-radius-md);
+  padding: var(--twenty-spacing-4);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.suggestionCard:hover {
+  border-color: var(--twenty-color-blue-60);
+  box-shadow: var(--twenty-shadow-sm);
+}
+
+.suggestionCard.selected {
+  border-color: var(--twenty-color-blue-60);
+  background: var(--twenty-color-blue-60)08;
+}
+
+.suggestionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--twenty-spacing-2);
+}
+
+.suggestionHeader h4 {
+  margin: 0;
+  font-size: var(--twenty-font-size-base);
+  font-weight: var(--twenty-font-weight-medium);
+  color: var(--twenty-color-gray-90);
+}
+
+.moduleType {
+  background: var(--twenty-color-gray-10);
+  color: var(--twenty-color-gray-70);
+  padding: var(--twenty-spacing-1) var(--twenty-spacing-2);
+  border-radius: var(--twenty-border-radius-sm);
+  font-size: var(--twenty-font-size-xs);
+  font-weight: var(--twenty-font-weight-medium);
+}
+
+.suggestionDescription {
+  margin: 0 0 var(--twenty-spacing-3) 0;
+  font-size: var(--twenty-font-size-sm);
+  color: var(--twenty-color-gray-70);
+  line-height: 1.4;
+}
+
+.suggestionTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--twenty-spacing-1);
+}
+
+.tag {
+  background: var(--twenty-color-gray-10);
+  color: var(--twenty-color-gray-60);
+  padding: 2px var(--twenty-spacing-2);
+  border-radius: var(--twenty-border-radius-sm);
+  font-size: var(--twenty-font-size-xs);
+}
+
+.promptSection {
+  space-y: var(--twenty-spacing-6);
+}
+
+.promptInputContainer {
+  margin-bottom: var(--twenty-spacing-6);
+}
+
+.promptLabel {
+  display: block;
+  margin-bottom: var(--twenty-spacing-2);
+  font-size: var(--twenty-font-size-sm);
+  font-weight: var(--twenty-font-weight-medium);
+  color: var(--twenty-color-gray-90);
+}
+
+.promptInput {
+  width: 100%;
+  min-height: 120px;
+  padding: var(--twenty-spacing-3);
+  border: 1px solid var(--twenty-color-gray-20);
+  border-radius: var(--twenty-border-radius-md);
+  font-family: var(--twenty-font-family);
+  font-size: var(--twenty-font-size-base);
+  line-height: 1.5;
+  resize: none;
+  transition: border-color 0.2s ease;
+}
+
+.promptInput:focus {
+  outline: none;
+  border-color: var(--twenty-color-blue-60);
+  box-shadow: 0 0 0 3px var(--twenty-color-blue-60)20;
+}
+
+.promptInput:disabled {
+  background: var(--twenty-color-gray-10);
+  color: var(--twenty-color-gray-50);
+}
+
+.inputFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--twenty-spacing-2);
+  font-size: var(--twenty-font-size-xs);
+  color: var(--twenty-color-gray-50);
+}
+
+.optionsSection {
+  margin-bottom: var(--twenty-spacing-6);
+  padding: var(--twenty-spacing-4);
+  background: var(--twenty-color-gray-10);
+  border-radius: var(--twenty-border-radius-md);
+}
+
+.optionsSection h4 {
+  margin: 0 0 var(--twenty-spacing-4) 0;
+  font-size: var(--twenty-font-size-base);
+  font-weight: var(--twenty-font-weight-medium);
+  color: var(--twenty-color-gray-90);
+}
+
+.optionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--twenty-spacing-4);
+}
+
+.optionGroup label {
+  display: block;
+  margin-bottom: var(--twenty-spacing-1);
+  font-size: var(--twenty-font-size-sm);
+  font-weight: var(--twenty-font-weight-medium);
+  color: var(--twenty-color-gray-90);
+}
+
+.optionGroup select {
+  width: 100%;
+  padding: var(--twenty-spacing-2);
+  border: 1px solid var(--twenty-color-gray-20);
+  border-radius: var(--twenty-border-radius-sm);
+  font-family: var(--twenty-font-family);
+  font-size: var(--twenty-font-size-sm);
+  background: var(--twenty-color-gray-0);
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+}
+
+.checkboxLabel {
+  display: flex !important;
+  align-items: center;
+  margin: 0 !important;
+  cursor: pointer;
+}
+
+.checkboxLabel input[type="checkbox"] {
+  margin-right: var(--twenty-spacing-2);
+}
+
+.actionSection {
+  display: flex;
+  justify-content: center;
+}
+
+.generateButton {
+  display: flex;
+  align-items: center;
+  gap: var(--twenty-spacing-2);
+  padding: var(--twenty-spacing-3) var(--twenty-spacing-6);
+  border: none;
+  border-radius: var(--twenty-border-radius-md);
+  font-family: var(--twenty-font-family);
+  font-size: var(--twenty-font-size-base);
+  font-weight: var(--twenty-font-weight-medium);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.generateButton.primary {
+  background: var(--twenty-color-blue-60);
+  color: var(--twenty-color-gray-0);
+}
+
+.generateButton.primary:hover {
+  background: var(--twenty-color-blue-70);
+  transform: translateY(-1px);
+  box-shadow: var(--twenty-shadow-md);
+}
+
+.generateButton.disabled {
+  background: var(--twenty-color-gray-20);
+  color: var(--twenty-color-gray-50);
+  cursor: not-allowed;
+}
+
+.loadingSpinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.aiIcon {
+  font-size: var(--twenty-font-size-lg);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .suggestionsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .optionsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .widgetHeader {
+    padding: var(--twenty-spacing-4);
+  }
+  
+  .widgetContent {
+    padding: var(--twenty-spacing-4);
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "7b518cdf-f8b3-4221-9108-85ada6dc480b",
+  "config": {
+    "name": "Generated component",
+    "slug": "component-1753576876851",
+    "featureType": "component",
+    "description": "Create a user profile card component with avatar, name, and email",
+    "version": "1.0.0",
+    "author": "AI Generator",
+    "dependencies": [],
+    "routes": [],
+    "integrationPoints": []
+  },
+  "metadata": {
+    "createdAt": "2025-07-27T00:41:16.851Z",
+    "generatedBy": "AI-Gemini-2.5-Flash",
+    "status": "created"
+  }
+}

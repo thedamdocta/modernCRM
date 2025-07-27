@@ -1,20 +1,14 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Sprint3Integration = void 0;
-const gemini_client_js_1 = __importDefault(require("../ai-service/gemini-client.js"));
-const module_creator_1 = __importDefault(require("./module-creator"));
-const plugin_hot_reload_1 = __importDefault(require("./plugin-hot-reload"));
-const events_1 = require("events");
-class Sprint3Integration extends events_1.EventEmitter {
+import GeminiClient from './gemini-client-mock.js';
+import ModuleCreator from './module-creator.js';
+import PluginHotReload from './plugin-hot-reload.js';
+import { EventEmitter } from 'events';
+export class Sprint3Integration extends EventEmitter {
     constructor() {
         super();
         this.isInitialized = false;
-        this.geminiClient = new gemini_client_js_1.default();
-        this.moduleCreator = new module_creator_1.default();
-        this.hotReload = new plugin_hot_reload_1.default();
+        this.geminiClient = new GeminiClient();
+        this.moduleCreator = new ModuleCreator();
+        this.hotReload = new PluginHotReload();
     }
     async initialize() {
         try {
@@ -239,6 +233,5 @@ class Sprint3Integration extends events_1.EventEmitter {
         }
     }
 }
-exports.Sprint3Integration = Sprint3Integration;
-exports.default = Sprint3Integration;
+export default Sprint3Integration;
 //# sourceMappingURL=sprint3-integration.js.map

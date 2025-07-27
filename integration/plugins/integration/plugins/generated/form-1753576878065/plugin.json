@@ -1,0 +1,41 @@
+{
+  "id": "form-1753576878065",
+  "name": "Generated form",
+  "version": "1.0.0",
+  "description": "Create a contact form with name, email, message fields and validation",
+  "type": "generated-module",
+  "featureType": "form",
+  "author": "AI Generator",
+  "main": "index.ts",
+  "components": [
+    {
+      "name": "form",
+      "path": "form.tsx",
+      "type": "react-component"
+    }
+  ],
+  "routes": [],
+  "integration": {
+    "entities": [],
+    "permissions": [
+      "read",
+      "write"
+    ],
+    "hooks": [
+      "onCreate",
+      "onUpdate"
+    ]
+  },
+  "dependencies": [],
+  "metadata": {
+    "generated": true,
+    "aiGenerated": true,
+    "generator": "gemini-2.5-flash",
+    "createdAt": "2025-07-27T00:41:18.065Z",
+    "tags": [
+      "form",
+      "ai-generated",
+      "plugin"
+    ]
+  }
+}

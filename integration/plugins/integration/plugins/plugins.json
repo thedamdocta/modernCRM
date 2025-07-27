@@ -1,0 +1,72 @@
+{
+  "plugins": [
+    {
+      "id": "component-1753576876851",
+      "name": "Generated component",
+      "version": "1.0.0",
+      "type": "generated-module",
+      "path": "./generated/component-1753576876851",
+      "enabled": true,
+      "metadata": {
+        "createdAt": "2025-07-27T00:41:16.851Z",
+        "generatedBy": "AI-Gemini-2.5-Flash",
+        "status": "created",
+        "featureType": "component",
+        "routes": [],
+        "integrationPoints": []
+      }
+    },
+    {
+      "id": "form-1753576878065",
+      "name": "Generated form",
+      "version": "1.0.0",
+      "type": "generated-module",
+      "path": "./generated/form-1753576878065",
+      "enabled": true,
+      "metadata": {
+        "createdAt": "2025-07-27T00:41:18.065Z",
+        "generatedBy": "AI-Gemini-2.5-Flash",
+        "status": "created",
+        "featureType": "form",
+        "routes": [],
+        "integrationPoints": []
+      }
+    },
+    {
+      "id": "component-1753576879458",
+      "name": "Generated component",
+      "version": "1.0.0",
+      "type": "generated-module",
+      "path": "./generated/component-1753576879458",
+      "enabled": true,
+      "metadata": {
+        "createdAt": "2025-07-27T00:41:19.458Z",
+        "generatedBy": "AI-Gemini-2.5-Flash",
+        "status": "created",
+        "featureType": "component",
+        "routes": [],
+        "integrationPoints": []
+      }
+    },
+    {
+      "id": "form-1753576880166",
+      "name": "Generated form",
+      "version": "1.0.0",
+      "type": "generated-module",
+      "path": "./generated/form-1753576880166",
+      "enabled": true,
+      "metadata": {
+        "createdAt": "2025-07-27T00:41:20.166Z",
+        "generatedBy": "AI-Gemini-2.5-Flash",
+        "status": "created",
+        "featureType": "form",
+        "routes": [],
+        "integrationPoints": []
+      }
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-07-27T00:41:16.844Z"
+  }
+}

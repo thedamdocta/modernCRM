@@ -1,0 +1,19 @@
+{
+  "id": "dc62160c-3566-429f-bad4-0d355be0782e",
+  "config": {
+    "name": "Generated form",
+    "slug": "form-1753576878065",
+    "featureType": "form",
+    "description": "Create a contact form with name, email, message fields and validation",
+    "version": "1.0.0",
+    "author": "AI Generator",
+    "dependencies": [],
+    "routes": [],
+    "integrationPoints": []
+  },
+  "metadata": {
+    "createdAt": "2025-07-27T00:41:18.065Z",
+    "generatedBy": "AI-Gemini-2.5-Flash",
+    "status": "created"
+  }
+}

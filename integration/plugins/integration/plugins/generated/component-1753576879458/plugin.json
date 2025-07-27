@@ -1,0 +1,41 @@
+{
+  "id": "component-1753576879458",
+  "name": "Generated component",
+  "version": "1.0.0",
+  "description": "Create a modern dashboard component with charts, metrics cards, and a data table",
+  "type": "generated-module",
+  "featureType": "component",
+  "author": "AI Generator",
+  "main": "index.ts",
+  "components": [
+    {
+      "name": "component",
+      "path": "component.tsx",
+      "type": "react-component"
+    }
+  ],
+  "routes": [],
+  "integration": {
+    "entities": [],
+    "permissions": [
+      "read",
+      "write"
+    ],
+    "hooks": [
+      "onCreate",
+      "onUpdate"
+    ]
+  },
+  "dependencies": [],
+  "metadata": {
+    "generated": true,
+    "aiGenerated": true,
+    "generator": "gemini-2.5-flash",
+    "createdAt": "2025-07-27T00:41:19.458Z",
+    "tags": [
+      "component",
+      "ai-generated",
+      "plugin"
+    ]
+  }
+}

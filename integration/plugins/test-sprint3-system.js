@@ -3,7 +3,7 @@
  * Comprehensive test of enhanced code generation, module creation, and hot-reload
  */
 
-import Sprint3Integration from './sprint3-integration.js';
+import Sprint3Integration from './dist/sprint3-integration.js';
 import fs from 'fs/promises';
 import path from 'path';
 

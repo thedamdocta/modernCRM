@@ -1,4 +1,4 @@
-import { GeminiClient } from '../../ai-service/gemini-client';
+import GeminiClient from '../gemini-client-mock';
 interface PromptRequest {
     prompt: string;
     options: {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { PluginConfig } from '../types';
+import styles from './webstudio-integration.module.css';
 
 interface WebstudioIntegrationProps {
   config: PluginConfig;
@@ -212,123 +213,37 @@ export const WebstudioIntegration: React.FC<WebstudioIntegrationProps> = ({
 
   if (error) {
     return (
-      <div className="webstudio-error">
-        <div className="error-container">
-          <h3>Webstudio Integration Error</h3>
-          <p>{error}</p>
-          <button onClick={handleClose} className="btn btn-secondary">
-            Close
-          </button>
-        </div>
-        <style jsx>{`
-          .webstudio-error {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background: var(--ws-color-background);
-            color: var(--ws-color-text-primary);
-          }
-          .error-container {
-            text-align: center;
-            padding: var(--ws-spacing-8);
-            border: 1px solid var(--ws-color-border);
-            border-radius: var(--ws-border-radius-lg);
-            background: var(--ws-color-background);
-            box-shadow: var(--ws-shadow-lg);
-          }
-          .error-container h3 {
-            margin-bottom: var(--ws-spacing-4);
-            color: var(--ws-color-error);
-          }
-          .error-container p {
-            margin-bottom: var(--ws-spacing-6);
-            color: var(--ws-color-text-secondary);
-          }
-          .btn {
-            padding: var(--ws-spacing-2) var(--ws-spacing-4);
-            border: none;
-            border-radius: var(--ws-border-radius-md);
-            cursor: pointer;
-            font-family: var(--ws-font-family-primary);
-            font-size: var(--ws-font-size-sm);
-          }
-          .btn-secondary {
-            background: var(--ws-color-gray-600);
-            color: var(--ws-color-background);
-          }
-          .btn-secondary:hover {
-            background: var(--ws-color-primary-700);
-          }
-        `}</style>
+      <div className={styles.errorState}>
+        <div className={styles.errorIcon}>⚠️</div>
+        <div className={styles.errorMessage}>Webstudio Integration Error</div>
+        <div className={styles.errorDetails}>{error}</div>
+        <button onClick={handleClose} className={`${styles.actionButton} ${styles.primary}`}>
+          Close
+        </button>
       </div>
     );
   }
 
   if (isLoading) {
     return (
-      <div className="webstudio-loading">
-        <div className="loading-container">
-          <div className="loading-spinner"></div>
-          <p>Loading Webstudio Builder...</p>
-        </div>
-        <style jsx>{`
-          .webstudio-loading {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background: var(--ws-color-background);
-            color: var(--ws-color-text-primary);
-          }
-          .loading-container {
-            text-align: center;
-          }
-          .loading-spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid var(--ws-color-border);
-            border-top: 3px solid var(--ws-color-primary-600);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto var(--ws-spacing-4);
-          }
-          @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-          }
-          .loading-container p {
-            color: var(--ws-color-text-secondary);
-            font-family: var(--ws-font-family-primary);
-            font-size: var(--ws-font-size-base);
-          }
-        `}</style>
+      <div className={styles.loadingState}>
+        <div className={styles.loadingSpinner}></div>
+        <p>Loading Webstudio Builder...</p>
       </div>
     );
   }
 
   return (
-    <div className="webstudio-integration">
+    <div className={styles.webstudioIntegration}>
       <div 
         ref={containerRef} 
-        className="webstudio-container"
         style={{
           width: '100%',
           height: '100vh',
           position: 'relative',
+          fontFamily: 'var(--ws-font-family-primary)',
         }}
       />
-      <style jsx>{`
-        .webstudio-integration {
-          width: 100%;
-          height: 100vh;
-          overflow: hidden;
-          background: var(--ws-color-background);
-        }
-        .webstudio-container {
-          font-family: var(--ws-font-family-primary);
-        }
-      `}</style>
     </div>
   );
 };

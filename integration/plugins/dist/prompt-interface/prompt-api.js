@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11,11 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var _a;
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.PromptController = exports.PromptService = void 0;
-const common_1 = require("@nestjs/common");
-const gemini_client_1 = require("../../ai-service/gemini-client");
+import { Injectable, Controller, Post, Body, HttpException, HttpStatus } from '@nestjs/common';
+import GeminiClient from '../gemini-client-mock';
 let PromptService = class PromptService {
     constructor(geminiClient) {
         this.geminiClient = geminiClient;
@@ -279,45 +275,45 @@ let PromptService = class PromptService {
         return `${outputFormat}_${timestamp}_${random}`;
     }
 };
-exports.PromptService = PromptService;
-exports.PromptService = PromptService = __decorate([
-    (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [typeof (_a = typeof gemini_client_1.GeminiClient !== "undefined" && gemini_client_1.GeminiClient) === "function" ? _a : Object])
+PromptService = __decorate([
+    Injectable(),
+    __metadata("design:paramtypes", [GeminiClient])
 ], PromptService);
+export { PromptService };
 let PromptController = class PromptController {
     constructor(promptService) {
         this.promptService = promptService;
     }
     async generateFromPrompt(request) {
         if (!request.prompt || request.prompt.trim().length < 10) {
-            throw new common_1.HttpException('Prompt must be at least 10 characters long', common_1.HttpStatus.BAD_REQUEST);
+            throw new HttpException('Prompt must be at least 10 characters long', HttpStatus.BAD_REQUEST);
         }
         if (!request.options || !request.options.outputFormat) {
-            throw new common_1.HttpException('Output format is required', common_1.HttpStatus.BAD_REQUEST);
+            throw new HttpException('Output format is required', HttpStatus.BAD_REQUEST);
         }
         const validFormats = ['component', 'page', 'widget'];
         if (!validFormats.includes(request.options.outputFormat)) {
-            throw new common_1.HttpException(`Output format must be one of: ${validFormats.join(', ')}`, common_1.HttpStatus.BAD_REQUEST);
+            throw new HttpException(`Output format must be one of: ${validFormats.join(', ')}`, HttpStatus.BAD_REQUEST);
         }
         try {
             return await this.promptService.generateFromPrompt(request);
         }
         catch (error) {
             console.error('Error in prompt generation endpoint:', error);
-            throw new common_1.HttpException('Internal server error during prompt generation', common_1.HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new HttpException('Internal server error during prompt generation', HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 };
-exports.PromptController = PromptController;
 __decorate([
-    (0, common_1.Post)('prompt-generate'),
-    __param(0, (0, common_1.Body)()),
+    Post('prompt-generate'),
+    __param(0, Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], PromptController.prototype, "generateFromPrompt", null);
-exports.PromptController = PromptController = __decorate([
-    (0, common_1.Controller)('api'),
+PromptController = __decorate([
+    Controller('api'),
     __metadata("design:paramtypes", [PromptService])
 ], PromptController);
+export { PromptController };
 //# sourceMappingURL=prompt-api.js.map

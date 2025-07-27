@@ -3,9 +3,9 @@
  * Orchestrates enhanced code generation, module creation, and hot-reload functionality
  */
 
-import GeminiClient from '../ai-service/gemini-client.js';
-import ModuleCreator, { GeneratedModule } from './module-creator';
-import PluginHotReload from './plugin-hot-reload';
+import GeminiClient from './gemini-client-mock.js';
+import ModuleCreator, { GeneratedModule } from './module-creator.js';
+import PluginHotReload from './plugin-hot-reload.js';
 import { EventEmitter } from 'events';
 
 export interface GenerationRequest {

@@ -1,0 +1,19 @@
+{
+  "id": "266b005c-82f5-4197-89ad-95d61117709c",
+  "config": {
+    "name": "Generated component",
+    "slug": "component-1753576879458",
+    "featureType": "component",
+    "description": "Create a modern dashboard component with charts, metrics cards, and a data table",
+    "version": "1.0.0",
+    "author": "AI Generator",
+    "dependencies": [],
+    "routes": [],
+    "integrationPoints": []
+  },
+  "metadata": {
+    "createdAt": "2025-07-27T00:41:19.458Z",
+    "generatedBy": "AI-Gemini-2.5-Flash",
+    "status": "created"
+  }
+}

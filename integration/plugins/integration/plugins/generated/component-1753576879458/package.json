@@ -1,0 +1,19 @@
+{
+  "name": "@modern-crm/plugin-component-1753576879458",
+  "version": "1.0.0",
+  "description": "Create a modern dashboard component with charts, metrics cards, and a data table",
+  "main": "index.ts",
+  "author": "AI Generator",
+  "license": "MIT",
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "modern-crm",
+    "plugin",
+    "component",
+    "ai-generated"
+  ]
+}

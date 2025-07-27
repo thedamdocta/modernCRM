@@ -23,7 +23,7 @@
     "@google/generative-ai": "^0.21.0"
   },
   "devDependencies": {
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.6.1"
   },
   "engines": {
     "node": ">=18.0.0"

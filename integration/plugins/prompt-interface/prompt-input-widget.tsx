@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { PluginConfig } from '../types';
+import styles from './prompt-input-widget.module.css';
 
 interface PromptInputWidgetProps {
   config: PluginConfig;
@@ -132,38 +133,38 @@ export const PromptInputWidget: React.FC<PromptInputWidgetProps> = ({
   const canSubmit = prompt.trim().length > 10 && !isLoading;
 
   return (
-    <div className="prompt-input-widget">
-      <div className="widget-header">
-        <div className="header-content">
+    <div className={styles.promptInputWidget}>
+      <div className={styles.widgetHeader}>
+        <div className={styles.headerContent}>
           <h2>AI Website Builder</h2>
           <p>Describe what you want to build and AI will generate it for you</p>
         </div>
         {onClose && (
-          <button onClick={onClose} className="close-button" aria-label="Close">
+          <button onClick={onClose} className={styles.closeButton} aria-label="Close">
             ×
           </button>
         )}
       </div>
 
-      <div className="widget-content">
+      <div className={styles.widgetContent}>
         {showSuggestions && (
-          <div className="suggestions-section">
+          <div className={styles.suggestionsSection}>
             <h3>Popular Templates</h3>
-            <div className="suggestions-grid">
+            <div className={styles.suggestionsGrid}>
               {PROMPT_SUGGESTIONS.map((suggestion) => (
                 <div
                   key={suggestion.id}
-                  className={`suggestion-card ${selectedSuggestion === suggestion.id ? 'selected' : ''}`}
+                  className={`${styles.suggestionCard} ${selectedSuggestion === suggestion.id ? styles.selected : ''}`}
                   onClick={() => handleSuggestionClick(suggestion)}
                 >
-                  <div className="suggestion-header">
+                  <div className={styles.suggestionHeader}>
                     <h4>{suggestion.title}</h4>
-                    <span className="module-type">{suggestion.moduleType}</span>
+                    <span className={styles.moduleType}>{suggestion.moduleType}</span>
                   </div>
-                  <p className="suggestion-description">{suggestion.description}</p>
-                  <div className="suggestion-tags">
+                  <p className={styles.suggestionDescription}>{suggestion.description}</p>
+                  <div className={styles.suggestionTags}>
                     {suggestion.tags.map((tag) => (
-                      <span key={tag} className="tag">{tag}</span>
+                      <span key={tag} className={styles.tag}>{tag}</span>
                     ))}
                   </div>
                 </div>
@@ -172,15 +173,15 @@ export const PromptInputWidget: React.FC<PromptInputWidgetProps> = ({
           </div>
         )}
 
-        <div className="prompt-section">
-          <div className="prompt-input-container">
-            <label htmlFor="prompt-input" className="prompt-label">
+        <div className={styles.promptSection}>
+          <div className={styles.promptInputContainer}>
+            <label htmlFor="prompt-input" className={styles.promptLabel}>
               Describe your website or component
             </label>
             <textarea
               ref={textareaRef}
               id="prompt-input"
-              className="prompt-input"
+              className={styles.promptInput}
               placeholder="Example: Create a real estate listing page with property search, image gallery, and contact form that integrates with our CRM..."
               value={prompt}
               onChange={(e) => handlePromptChange(e.target.value)}
@@ -188,21 +189,21 @@ export const PromptInputWidget: React.FC<PromptInputWidgetProps> = ({
               disabled={isLoading}
               rows={3}
             />
-            <div className="input-footer">
-              <span className="char-count">
+            <div className={styles.inputFooter}>
+              <span className={styles.charCount}>
                 {prompt.length} characters
               </span>
-              <span className="keyboard-hint">
+              <span className={styles.keyboardHint}>
                 Press ⌘+Enter to generate
               </span>
             </div>
           </div>
 
           {(prompt.length > 0 || isExpanded) && (
-            <div className="options-section">
+            <div className={styles.optionsSection}>
               <h4>Generation Options</h4>
-              <div className="options-grid">
-                <div className="option-group">
+              <div className={styles.optionsGrid}>
+                <div className={styles.optionGroup}>
                   <label htmlFor="module-type">Output Type</label>
                   <select
                     id="module-type"
@@ -220,7 +221,7 @@ export const PromptInputWidget: React.FC<PromptInputWidgetProps> = ({
                   </select>
                 </div>
 
-                <div className="option-group">
+                <div className={styles.optionGroup}>
                   <label htmlFor="target-entity">CRM Entity</label>
                   <select
                     id="target-entity"
@@ -239,8 +240,8 @@ export const PromptInputWidget: React.FC<PromptInputWidgetProps> = ({
                   </select>
                 </div>
 
-                <div className="option-group checkbox-group">
-                  <label className="checkbox-label">
+                <div className={`${styles.optionGroup} ${styles.checkboxGroup}`}>
+                  <label className={styles.checkboxLabel}>
                     <input
                       type="checkbox"
                       checked={options.includeDataBinding}
@@ -254,8 +255,8 @@ export const PromptInputWidget: React.FC<PromptInputWidgetProps> = ({
                   </label>
                 </div>
 
-                <div className="option-group checkbox-group">
-                  <label className="checkbox-label">
+                <div className={`${styles.optionGroup} ${styles.checkboxGroup}`}>
+                  <label className={styles.checkboxLabel}>
                     <input
                       type="checkbox"
                       checked={options.generateTests}
@@ -272,20 +273,20 @@ export const PromptInputWidget: React.FC<PromptInputWidgetProps> = ({
             </div>
           )}
 
-          <div className="action-section">
+          <div className={styles.actionSection}>
             <button
               onClick={handleSubmit}
               disabled={!canSubmit}
-              className={`generate-button ${canSubmit ? 'primary' : 'disabled'}`}
+              className={`${styles.generateButton} ${canSubmit ? styles.primary : styles.disabled}`}
             >
               {isLoading ? (
                 <>
-                  <div className="loading-spinner"></div>
+                  <div className={styles.loadingSpinner}></div>
                   Generating...
                 </>
               ) : (
                 <>
-                  <span className="ai-icon">✨</span>
+                  <span className={styles.aiIcon}>✨</span>
                   Generate with AI
                 </>
               )}
@@ -294,310 +295,6 @@ export const PromptInputWidget: React.FC<PromptInputWidgetProps> = ({
         </div>
       </div>
 
-      <style jsx>{`
-        .prompt-input-widget {
-          background: var(--twenty-color-gray-0);
-          border-radius: var(--twenty-border-radius-lg);
-          box-shadow: var(--twenty-shadow-xl);
-          max-width: 800px;
-          margin: 0 auto;
-          font-family: var(--twenty-font-family);
-        }
-
-        .widget-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          padding: var(--twenty-spacing-6);
-          border-bottom: 1px solid var(--twenty-color-gray-20);
-        }
-
-        .header-content h2 {
-          margin: 0 0 var(--twenty-spacing-2) 0;
-          font-size: var(--twenty-font-size-xl);
-          font-weight: var(--twenty-font-weight-semibold);
-          color: var(--twenty-color-gray-90);
-        }
-
-        .header-content p {
-          margin: 0;
-          font-size: var(--twenty-font-size-sm);
-          color: var(--twenty-color-gray-70);
-        }
-
-        .close-button {
-          background: none;
-          border: none;
-          font-size: 24px;
-          color: var(--twenty-color-gray-50);
-          cursor: pointer;
-          padding: var(--twenty-spacing-1);
-          border-radius: var(--twenty-border-radius-sm);
-        }
-
-        .close-button:hover {
-          background: var(--twenty-color-gray-10);
-          color: var(--twenty-color-gray-70);
-        }
-
-        .widget-content {
-          padding: var(--twenty-spacing-6);
-        }
-
-        .suggestions-section {
-          margin-bottom: var(--twenty-spacing-8);
-        }
-
-        .suggestions-section h3 {
-          margin: 0 0 var(--twenty-spacing-4) 0;
-          font-size: var(--twenty-font-size-lg);
-          font-weight: var(--twenty-font-weight-medium);
-          color: var(--twenty-color-gray-90);
-        }
-
-        .suggestions-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: var(--twenty-spacing-4);
-        }
-
-        .suggestion-card {
-          border: 1px solid var(--twenty-color-gray-20);
-          border-radius: var(--twenty-border-radius-md);
-          padding: var(--twenty-spacing-4);
-          cursor: pointer;
-          transition: all 0.2s ease;
-        }
-
-        .suggestion-card:hover {
-          border-color: var(--twenty-color-blue-60);
-          box-shadow: var(--twenty-shadow-sm);
-        }
-
-        .suggestion-card.selected {
-          border-color: var(--twenty-color-blue-60);
-          background: var(--twenty-color-blue-60)08;
-        }
-
-        .suggestion-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          margin-bottom: var(--twenty-spacing-2);
-        }
-
-        .suggestion-header h4 {
-          margin: 0;
-          font-size: var(--twenty-font-size-base);
-          font-weight: var(--twenty-font-weight-medium);
-          color: var(--twenty-color-gray-90);
-        }
-
-        .module-type {
-          background: var(--twenty-color-gray-10);
-          color: var(--twenty-color-gray-70);
-          padding: var(--twenty-spacing-1) var(--twenty-spacing-2);
-          border-radius: var(--twenty-border-radius-sm);
-          font-size: var(--twenty-font-size-xs);
-          font-weight: var(--twenty-font-weight-medium);
-        }
-
-        .suggestion-description {
-          margin: 0 0 var(--twenty-spacing-3) 0;
-          font-size: var(--twenty-font-size-sm);
-          color: var(--twenty-color-gray-70);
-          line-height: 1.4;
-        }
-
-        .suggestion-tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: var(--twenty-spacing-1);
-        }
-
-        .tag {
-          background: var(--twenty-color-gray-10);
-          color: var(--twenty-color-gray-60);
-          padding: 2px var(--twenty-spacing-2);
-          border-radius: var(--twenty-border-radius-sm);
-          font-size: var(--twenty-font-size-xs);
-        }
-
-        .prompt-section {
-          space-y: var(--twenty-spacing-6);
-        }
-
-        .prompt-input-container {
-          margin-bottom: var(--twenty-spacing-6);
-        }
-
-        .prompt-label {
-          display: block;
-          margin-bottom: var(--twenty-spacing-2);
-          font-size: var(--twenty-font-size-sm);
-          font-weight: var(--twenty-font-weight-medium);
-          color: var(--twenty-color-gray-90);
-        }
-
-        .prompt-input {
-          width: 100%;
-          min-height: 120px;
-          padding: var(--twenty-spacing-3);
-          border: 1px solid var(--twenty-color-gray-20);
-          border-radius: var(--twenty-border-radius-md);
-          font-family: var(--twenty-font-family);
-          font-size: var(--twenty-font-size-base);
-          line-height: 1.5;
-          resize: none;
-          transition: border-color 0.2s ease;
-        }
-
-        .prompt-input:focus {
-          outline: none;
-          border-color: var(--twenty-color-blue-60);
-          box-shadow: 0 0 0 3px var(--twenty-color-blue-60)20;
-        }
-
-        .prompt-input:disabled {
-          background: var(--twenty-color-gray-10);
-          color: var(--twenty-color-gray-50);
-        }
-
-        .input-footer {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-top: var(--twenty-spacing-2);
-          font-size: var(--twenty-font-size-xs);
-          color: var(--twenty-color-gray-50);
-        }
-
-        .options-section {
-          margin-bottom: var(--twenty-spacing-6);
-          padding: var(--twenty-spacing-4);
-          background: var(--twenty-color-gray-10);
-          border-radius: var(--twenty-border-radius-md);
-        }
-
-        .options-section h4 {
-          margin: 0 0 var(--twenty-spacing-4) 0;
-          font-size: var(--twenty-font-size-base);
-          font-weight: var(--twenty-font-weight-medium);
-          color: var(--twenty-color-gray-90);
-        }
-
-        .options-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          gap: var(--twenty-spacing-4);
-        }
-
-        .option-group label {
-          display: block;
-          margin-bottom: var(--twenty-spacing-1);
-          font-size: var(--twenty-font-size-sm);
-          font-weight: var(--twenty-font-weight-medium);
-          color: var(--twenty-color-gray-90);
-        }
-
-        .option-group select {
-          width: 100%;
-          padding: var(--twenty-spacing-2);
-          border: 1px solid var(--twenty-color-gray-20);
-          border-radius: var(--twenty-border-radius-sm);
-          font-family: var(--twenty-font-family);
-          font-size: var(--twenty-font-size-sm);
-          background: var(--twenty-color-gray-0);
-        }
-
-        .checkbox-group {
-          display: flex;
-          align-items: center;
-        }
-
-        .checkbox-label {
-          display: flex !important;
-          align-items: center;
-          margin: 0 !important;
-          cursor: pointer;
-        }
-
-        .checkbox-label input[type="checkbox"] {
-          margin-right: var(--twenty-spacing-2);
-        }
-
-        .action-section {
-          display: flex;
-          justify-content: center;
-        }
-
-        .generate-button {
-          display: flex;
-          align-items: center;
-          gap: var(--twenty-spacing-2);
-          padding: var(--twenty-spacing-3) var(--twenty-spacing-6);
-          border: none;
-          border-radius: var(--twenty-border-radius-md);
-          font-family: var(--twenty-font-family);
-          font-size: var(--twenty-font-size-base);
-          font-weight: var(--twenty-font-weight-medium);
-          cursor: pointer;
-          transition: all 0.2s ease;
-        }
-
-        .generate-button.primary {
-          background: var(--twenty-color-blue-60);
-          color: var(--twenty-color-gray-0);
-        }
-
-        .generate-button.primary:hover {
-          background: var(--twenty-color-blue-70);
-          transform: translateY(-1px);
-          box-shadow: var(--twenty-shadow-md);
-        }
-
-        .generate-button.disabled {
-          background: var(--twenty-color-gray-20);
-          color: var(--twenty-color-gray-50);
-          cursor: not-allowed;
-        }
-
-        .loading-spinner {
-          width: 16px;
-          height: 16px;
-          border: 2px solid transparent;
-          border-top: 2px solid currentColor;
-          border-radius: 50%;
-          animation: spin 1s linear infinite;
-        }
-
-        .ai-icon {
-          font-size: var(--twenty-font-size-lg);
-        }
-
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-
-        @media (max-width: 768px) {
-          .suggestions-grid {
-            grid-template-columns: 1fr;
-          }
-          
-          .options-grid {
-            grid-template-columns: 1fr;
-          }
-          
-          .widget-header {
-            padding: var(--twenty-spacing-4);
-          }
-          
-          .widget-content {
-            padding: var(--twenty-spacing-4);
-          }
-        }
-      `}</style>
     </div>
   );
 };

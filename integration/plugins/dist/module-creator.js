@@ -1,21 +1,15 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ModuleCreator = void 0;
-const promises_1 = __importDefault(require("fs/promises"));
-const path_1 = __importDefault(require("path"));
-const uuid_1 = require("uuid");
-class ModuleCreator {
+import fs from 'fs/promises';
+import path from 'path';
+import { v4 as uuidv4 } from 'uuid';
+export class ModuleCreator {
     constructor() {
-        this.generatedModulesPath = path_1.default.join(process.cwd(), 'integration/plugins/generated');
-        this.pluginsConfigPath = path_1.default.join(process.cwd(), 'integration/plugins/plugins.json');
+        this.generatedModulesPath = path.join(process.cwd(), 'integration/plugins/generated');
+        this.pluginsConfigPath = path.join(process.cwd(), 'integration/plugins/plugins.json');
     }
     async createModule(moduleData) {
         try {
             console.log('Creating new module:', moduleData.name);
-            const moduleId = (0, uuid_1.v4)();
+            const moduleId = uuidv4();
             const timestamp = new Date().toISOString();
             const moduleConfig = {
                 name: moduleData.name,
@@ -72,8 +66,8 @@ class ModuleCreator {
         if (explicitType) {
             return explicitType;
         }
-        const ext = path_1.default.extname(filePath);
-        const fileName = path_1.default.basename(filePath);
+        const ext = path.extname(filePath);
+        const fileName = path.basename(filePath);
         if (ext === '.tsx' || ext === '.jsx')
             return 'component';
         if (ext === '.ts' && !fileName.includes('.test.') && !fileName.includes('.spec.'))
@@ -133,7 +127,7 @@ class ModuleCreator {
     generateIndexFile(files, config) {
         const componentFiles = files.filter(f => f.type === 'component');
         const exports = componentFiles.map(f => {
-            const fileName = path_1.default.basename(f.path, path_1.default.extname(f.path));
+            const fileName = path.basename(f.path, path.extname(f.path));
             return `export { default as ${fileName} } from './${f.path.replace('.tsx', '').replace('.ts', '')}';`;
         }).join('\n');
         return `/**
@@ -237,7 +231,7 @@ Generator: Modern CRM AI System (Gemini 2.5 Flash)
             components: files
                 .filter(f => f.type === 'component')
                 .map(f => ({
-                name: path_1.default.basename(f.path, path_1.default.extname(f.path)),
+                name: path.basename(f.path, path.extname(f.path)),
                 path: f.path,
                 type: 'react-component'
             })),
@@ -262,18 +256,18 @@ Generator: Modern CRM AI System (Gemini 2.5 Flash)
         };
     }
     async writeModuleToFileSystem(module) {
-        const modulePath = path_1.default.join(this.generatedModulesPath, module.config.slug);
-        await promises_1.default.mkdir(modulePath, { recursive: true });
+        const modulePath = path.join(this.generatedModulesPath, module.config.slug);
+        await fs.mkdir(modulePath, { recursive: true });
         for (const file of module.files) {
-            const filePath = path_1.default.join(modulePath, file.path);
-            const fileDir = path_1.default.dirname(filePath);
-            await promises_1.default.mkdir(fileDir, { recursive: true });
-            await promises_1.default.writeFile(filePath, file.content, 'utf-8');
+            const filePath = path.join(modulePath, file.path);
+            const fileDir = path.dirname(filePath);
+            await fs.mkdir(fileDir, { recursive: true });
+            await fs.writeFile(filePath, file.content, 'utf-8');
         }
-        const manifestPath = path_1.default.join(modulePath, 'plugin.json');
-        await promises_1.default.writeFile(manifestPath, JSON.stringify(module.pluginManifest, null, 2), 'utf-8');
-        const metadataPath = path_1.default.join(modulePath, 'module-metadata.json');
-        await promises_1.default.writeFile(metadataPath, JSON.stringify({
+        const manifestPath = path.join(modulePath, 'plugin.json');
+        await fs.writeFile(manifestPath, JSON.stringify(module.pluginManifest, null, 2), 'utf-8');
+        const metadataPath = path.join(modulePath, 'module-metadata.json');
+        await fs.writeFile(metadataPath, JSON.stringify({
             id: module.id,
             config: module.config,
             metadata: module.metadata
@@ -284,7 +278,7 @@ Generator: Modern CRM AI System (Gemini 2.5 Flash)
         try {
             let pluginsConfig = { plugins: [] };
             try {
-                const configContent = await promises_1.default.readFile(this.pluginsConfigPath, 'utf-8');
+                const configContent = await fs.readFile(this.pluginsConfigPath, 'utf-8');
                 pluginsConfig = JSON.parse(configContent);
             }
             catch (error) {
@@ -306,7 +300,7 @@ Generator: Modern CRM AI System (Gemini 2.5 Flash)
             };
             pluginsConfig.plugins = pluginsConfig.plugins.filter((p) => p.id !== module.config.slug);
             pluginsConfig.plugins.push(newPlugin);
-            await promises_1.default.writeFile(this.pluginsConfigPath, JSON.stringify(pluginsConfig, null, 2), 'utf-8');
+            await fs.writeFile(this.pluginsConfigPath, JSON.stringify(pluginsConfig, null, 2), 'utf-8');
             console.log(`Plugin registry updated with module: ${module.config.name}`);
         }
         catch (error) {
@@ -318,21 +312,21 @@ Generator: Modern CRM AI System (Gemini 2.5 Flash)
         try {
             const modules = [];
             try {
-                await promises_1.default.access(this.generatedModulesPath);
+                await fs.access(this.generatedModulesPath);
             }
             catch {
                 return modules;
             }
-            const moduleDirectories = await promises_1.default.readdir(this.generatedModulesPath);
+            const moduleDirectories = await fs.readdir(this.generatedModulesPath);
             for (const dirName of moduleDirectories) {
-                const modulePath = path_1.default.join(this.generatedModulesPath, dirName);
-                const metadataPath = path_1.default.join(modulePath, 'module-metadata.json');
+                const modulePath = path.join(this.generatedModulesPath, dirName);
+                const metadataPath = path.join(modulePath, 'module-metadata.json');
                 try {
-                    const metadataContent = await promises_1.default.readFile(metadataPath, 'utf-8');
+                    const metadataContent = await fs.readFile(metadataPath, 'utf-8');
                     const moduleData = JSON.parse(metadataContent);
                     const files = await this.loadModuleFiles(modulePath);
-                    const manifestPath = path_1.default.join(modulePath, 'plugin.json');
-                    const manifestContent = await promises_1.default.readFile(manifestPath, 'utf-8');
+                    const manifestPath = path.join(modulePath, 'plugin.json');
+                    const manifestContent = await fs.readFile(manifestPath, 'utf-8');
                     const pluginManifest = JSON.parse(manifestContent);
                     modules.push({
                         id: moduleData.id,
@@ -356,16 +350,16 @@ Generator: Modern CRM AI System (Gemini 2.5 Flash)
     async loadModuleFiles(modulePath) {
         const files = [];
         const loadFilesRecursively = async (currentPath, relativePath = '') => {
-            const items = await promises_1.default.readdir(currentPath);
+            const items = await fs.readdir(currentPath);
             for (const item of items) {
-                const itemPath = path_1.default.join(currentPath, item);
-                const relativeItemPath = path_1.default.join(relativePath, item);
-                const stat = await promises_1.default.stat(itemPath);
+                const itemPath = path.join(currentPath, item);
+                const relativeItemPath = path.join(relativePath, item);
+                const stat = await fs.stat(itemPath);
                 if (stat.isDirectory()) {
                     await loadFilesRecursively(itemPath, relativeItemPath);
                 }
                 else if (!item.startsWith('.') && item !== 'module-metadata.json') {
-                    const content = await promises_1.default.readFile(itemPath, 'utf-8');
+                    const content = await fs.readFile(itemPath, 'utf-8');
                     const fileType = this.determineFileType(relativeItemPath);
                     files.push({
                         path: relativeItemPath,
@@ -380,15 +374,15 @@ Generator: Modern CRM AI System (Gemini 2.5 Flash)
     }
     async deleteModule(moduleSlug) {
         try {
-            const modulePath = path_1.default.join(this.generatedModulesPath, moduleSlug);
+            const modulePath = path.join(this.generatedModulesPath, moduleSlug);
             try {
-                await promises_1.default.access(modulePath);
+                await fs.access(modulePath);
             }
             catch {
                 console.warn(`Module ${moduleSlug} not found`);
                 return false;
             }
-            await promises_1.default.rm(modulePath, { recursive: true, force: true });
+            await fs.rm(modulePath, { recursive: true, force: true });
             await this.removeFromPluginsRegistry(moduleSlug);
             console.log(`Module ${moduleSlug} deleted successfully`);
             return true;
@@ -400,10 +394,10 @@ Generator: Modern CRM AI System (Gemini 2.5 Flash)
     }
     async removeFromPluginsRegistry(moduleSlug) {
         try {
-            const configContent = await promises_1.default.readFile(this.pluginsConfigPath, 'utf-8');
+            const configContent = await fs.readFile(this.pluginsConfigPath, 'utf-8');
             const pluginsConfig = JSON.parse(configContent);
             pluginsConfig.plugins = pluginsConfig.plugins.filter((p) => p.id !== moduleSlug);
-            await promises_1.default.writeFile(this.pluginsConfigPath, JSON.stringify(pluginsConfig, null, 2), 'utf-8');
+            await fs.writeFile(this.pluginsConfigPath, JSON.stringify(pluginsConfig, null, 2), 'utf-8');
             console.log(`Removed ${moduleSlug} from plugins registry`);
         }
         catch (error) {
@@ -412,7 +406,7 @@ Generator: Modern CRM AI System (Gemini 2.5 Flash)
     }
     async toggleModuleStatus(moduleSlug, enabled) {
         try {
-            const configContent = await promises_1.default.readFile(this.pluginsConfigPath, 'utf-8');
+            const configContent = await fs.readFile(this.pluginsConfigPath, 'utf-8');
             const pluginsConfig = JSON.parse(configContent);
             const plugin = pluginsConfig.plugins.find((p) => p.id === moduleSlug);
             if (!plugin) {
@@ -420,7 +414,7 @@ Generator: Modern CRM AI System (Gemini 2.5 Flash)
                 return false;
             }
             plugin.enabled = enabled;
-            await promises_1.default.writeFile(this.pluginsConfigPath, JSON.stringify(pluginsConfig, null, 2), 'utf-8');
+            await fs.writeFile(this.pluginsConfigPath, JSON.stringify(pluginsConfig, null, 2), 'utf-8');
             console.log(`Module ${moduleSlug} ${enabled ? 'activated' : 'deactivated'}`);
             return true;
         }
@@ -431,13 +425,13 @@ Generator: Modern CRM AI System (Gemini 2.5 Flash)
     }
     async getModule(moduleSlug) {
         try {
-            const modulePath = path_1.default.join(this.generatedModulesPath, moduleSlug);
-            const metadataPath = path_1.default.join(modulePath, 'module-metadata.json');
-            const metadataContent = await promises_1.default.readFile(metadataPath, 'utf-8');
+            const modulePath = path.join(this.generatedModulesPath, moduleSlug);
+            const metadataPath = path.join(modulePath, 'module-metadata.json');
+            const metadataContent = await fs.readFile(metadataPath, 'utf-8');
             const moduleData = JSON.parse(metadataContent);
             const files = await this.loadModuleFiles(modulePath);
-            const manifestPath = path_1.default.join(modulePath, 'plugin.json');
-            const manifestContent = await promises_1.default.readFile(manifestPath, 'utf-8');
+            const manifestPath = path.join(modulePath, 'plugin.json');
+            const manifestContent = await fs.readFile(manifestPath, 'utf-8');
             const pluginManifest = JSON.parse(manifestContent);
             return {
                 id: moduleData.id,
@@ -453,6 +447,5 @@ Generator: Modern CRM AI System (Gemini 2.5 Flash)
         }
     }
 }
-exports.ModuleCreator = ModuleCreator;
-exports.default = ModuleCreator;
+export default ModuleCreator;
 //# sourceMappingURL=module-creator.js.map

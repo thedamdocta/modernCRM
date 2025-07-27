@@ -1,0 +1,65 @@
+{
+  "summary": {
+    "totalTests": 9,
+    "passedTests": 2,
+    "failedTests": 7,
+    "successRate": "22.2%",
+    "timestamp": "2025-07-27T00:25:31.342Z"
+  },
+  "results": [
+    {
+      "test": "System Initialization",
+      "success": false,
+      "details": "ENOENT: no such file or directory, open '/Users/devon/modernCRM/integration/plugins/integration/plugins/plugins.json'",
+      "timestamp": "2025-07-27T00:25:31.340Z"
+    },
+    {
+      "test": "Contact Form Generation",
+      "success": false,
+      "details": "System not initialized. Call initialize() first.",
+      "timestamp": "2025-07-27T00:25:31.341Z"
+    },
+    {
+      "test": "Dashboard Widget Generation",
+      "success": false,
+      "details": "System not initialized. Call initialize() first.",
+      "timestamp": "2025-07-27T00:25:31.341Z"
+    },
+    {
+      "test": "Landing Page Generation",
+      "success": false,
+      "details": "System not initialized. Call initialize() first.",
+      "timestamp": "2025-07-27T00:25:31.341Z"
+    },
+    {
+      "test": "Module Listing",
+      "success": true,
+      "details": "Found 0 modules",
+      "timestamp": "2025-07-27T00:25:31.341Z"
+    },
+    {
+      "test": "Hot-Reload Active",
+      "success": false,
+      "details": "Hot-reload system not active",
+      "timestamp": "2025-07-27T00:25:31.341Z"
+    },
+    {
+      "test": "Integration Pipeline",
+      "success": false,
+      "timestamp": "2025-07-27T00:25:31.341Z"
+    },
+    {
+      "test": "Fallback Generation",
+      "success": false,
+      "details": "Fallback generation failed",
+      "timestamp": "2025-07-27T00:25:31.341Z"
+    },
+    {
+      "test": "Non-existent Module Handling",
+      "success": true,
+      "details": "Correctly handled non-existent module",
+      "timestamp": "2025-07-27T00:25:31.342Z"
+    }
+  ],
+  "generatedModules": []
+}

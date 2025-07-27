@@ -1,0 +1,19 @@
+{
+  "id": "ea402fb0-b099-4847-82dd-083b88bd7211",
+  "config": {
+    "name": "Generated form",
+    "slug": "form-1753576880166",
+    "featureType": "form",
+    "description": "Create a contact form with validation, file upload, and success/error states",
+    "version": "1.0.0",
+    "author": "AI Generator",
+    "dependencies": [],
+    "routes": [],
+    "integrationPoints": []
+  },
+  "metadata": {
+    "createdAt": "2025-07-27T00:41:20.166Z",
+    "generatedBy": "AI-Gemini-2.5-Flash",
+    "status": "created"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@modern-crm/plugin-component-1753576876851",
+  "version": "1.0.0",
+  "description": "Create a user profile card component with avatar, name, and email",
+  "main": "index.ts",
+  "author": "AI Generator",
+  "license": "MIT",
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "modern-crm",
+    "plugin",
+    "component",
+    "ai-generated"
+  ]
+}
