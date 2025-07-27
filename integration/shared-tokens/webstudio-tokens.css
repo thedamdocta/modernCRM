@@ -1,0 +1,63 @@
+/* Generated CSS Variables for Webstudio */
+/* Auto-generated from design-system-mapping.json */
+
+:root {
+  /* Colors */
+  --ws-color-primary-600: #3b82f6; /* Primary brand color for buttons, links, and accents */
+  --ws-color-primary-700: #1d4ed8; /* Primary color hover state */
+  --ws-color-gray-600: #4b5563; /* Secondary color for less prominent elements */
+  --ws-color-background: #ffffff; /* Main background color */
+  --ws-color-background-secondary: #f9fafb; /* Secondary background for cards and panels */
+  --ws-color-text-primary: #111827; /* Primary text color */
+  --ws-color-text-secondary: #374151; /* Secondary text color */
+  --ws-color-text-muted: #6b7280; /* Muted text color for hints and labels */
+  --ws-color-border: #e5e7eb; /* Default border color */
+  --ws-color-border-focus: #3b82f6; /* Focus state border color */
+  --ws-color-success: #10b981; /* Success state color */
+  --ws-color-warning: #f59e0b; /* Warning state color */
+  --ws-color-error: #ef4444; /* Error state color */
+
+  /* Typography */
+  --ws-font-family-primary: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /* fontFamily primary */
+  --ws-font-family-mono: 'Roboto Mono', 'SF Mono', Monaco, monospace; /* fontFamily mono */
+  --ws-font-size-xs: 0.75rem; /* fontSize xs */
+  --ws-font-line-height-xs: 1rem;
+  --ws-font-size-sm: 0.875rem; /* fontSize sm */
+  --ws-font-line-height-sm: 1.25rem;
+  --ws-font-size-base: 1rem; /* fontSize base */
+  --ws-font-line-height-base: 1.5rem;
+  --ws-font-size-lg: 1.125rem; /* fontSize lg */
+  --ws-font-line-height-lg: 1.75rem;
+  --ws-font-size-xl: 1.25rem; /* fontSize xl */
+  --ws-font-line-height-xl: 1.75rem;
+  --ws-font-size-2xl: 1.5rem; /* fontSize 2xl */
+  --ws-font-line-height-2xl: 2rem;
+  --ws-font-weight-normal: 400; /* fontWeight normal */
+  --ws-font-weight-medium: 500; /* fontWeight medium */
+  --ws-font-weight-semibold: 600; /* fontWeight semibold */
+  --ws-font-weight-bold: 700; /* fontWeight bold */
+
+  /* Spacing */
+  --ws-spacing-1: 0.25rem; /* xs */
+  --ws-spacing-2: 0.5rem; /* sm */
+  --ws-spacing-3: 0.75rem; /* md */
+  --ws-spacing-4: 1rem; /* lg */
+  --ws-spacing-6: 1.5rem; /* xl */
+  --ws-spacing-8: 2rem; /* 2xl */
+  --ws-spacing-12: 3rem; /* 3xl */
+
+  /* Border Radius */
+  --ws-border-radius-none: 0; /* none */
+  --ws-border-radius-sm: 0.125rem; /* sm */
+  --ws-border-radius-md: 0.375rem; /* md */
+  --ws-border-radius-lg: 0.5rem; /* lg */
+  --ws-border-radius-xl: 0.75rem; /* xl */
+  --ws-border-radius-full: 9999px; /* full */
+
+  /* Shadows */
+  --ws-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05); /* sm */
+  --ws-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* md */
+  --ws-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* lg */
+  --ws-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); /* xl */
+
+}

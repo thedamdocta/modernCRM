@@ -1,0 +1,31 @@
+{
+  "timestamp": "2025-07-26T23:48:31.730Z",
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "successRate": 100
+  },
+  "results": [
+    {
+      "scenario": "Contact Form Generation",
+      "success": true,
+      "duration": 7,
+      "filesGenerated": 2,
+      "requestId": "req_1753573711718_eqc4gvkal"
+    },
+    {
+      "scenario": "Dashboard Widget Generation",
+      "success": true,
+      "duration": 1,
+      "filesGenerated": 2,
+      "requestId": "req_1753573711727_ffk7kn6gz"
+    },
+    {
+      "scenario": "Landing Page Generation",
+      "success": true,
+      "duration": 0,
+      "filesGenerated": 2,
+      "requestId": "req_1753573711729_0nx5hskhb"
+    }
+  ]
+}

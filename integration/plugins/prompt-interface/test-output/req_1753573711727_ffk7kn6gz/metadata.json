@@ -1,0 +1,25 @@
+{
+  "webTemplate": {
+    "name": "widget_1753573711728_vxusc",
+    "slug": "widget-1753573711728-vxusc",
+    "templateType": "widget",
+    "status": "generated",
+    "createdAt": "2025-07-26T23:48:31.728Z"
+  },
+  "promptLog": {
+    "prompt": "Build a dashboard widget showing contact statistics, recent activities, and opportunity metrics",
+    "generatedFiles": [
+      {
+        "path": "integration/plugins/generated/widget_1753573711728_9j0ms/widget_1753573711728_9j0ms.tsx",
+        "type": "component"
+      },
+      {
+        "path": "integration/plugins/generated/widget_1753573711728_9j0ms/plugin.json",
+        "type": "config"
+      }
+    ],
+    "timestamp": "2025-07-26T23:48:31.728Z",
+    "status": "success",
+    "featureType": "widget"
+  }
+}

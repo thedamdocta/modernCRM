@@ -1,0 +1,39 @@
+{
+  "name": "@moderncrm/ai-service",
+  "version": "1.0.0",
+  "description": "AI-powered code generation service for Modern CRM using Gemini 2.5",
+  "type": "module",
+  "main": "gemini-client.js",
+  "scripts": {
+    "test": "node test-connection.js",
+    "dev": "node --watch gemini-client.js",
+    "generate": "node generate-feature.js"
+  },
+  "keywords": [
+    "ai",
+    "code-generation",
+    "gemini",
+    "crm",
+    "webstudio",
+    "twenty"
+  ],
+  "author": "Modern CRM Team",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moderncrm/integration"
+  },
+  "bugs": {
+    "url": "https://github.com/moderncrm/integration/issues"
+  },
+  "homepage": "https://docs.moderncrm.dev"
+}

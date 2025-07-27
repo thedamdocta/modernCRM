@@ -1,0 +1,344 @@
+{
+  "version": "1.0.0",
+  "description": "Design token mapping between Twenty CRM and Webstudio for consistent UI/UX",
+  "lastUpdated": "2025-01-26T19:28:00Z",
+  "tokenMapping": {
+    "colors": {
+      "primary": {
+        "twenty": "var(--twenty-color-blue-60)",
+        "webstudio": "var(--ws-color-primary-600)",
+        "value": "#3b82f6",
+        "description": "Primary brand color for buttons, links, and accents"
+      },
+      "primaryHover": {
+        "twenty": "var(--twenty-color-blue-70)",
+        "webstudio": "var(--ws-color-primary-700)",
+        "value": "#1d4ed8",
+        "description": "Primary color hover state"
+      },
+      "secondary": {
+        "twenty": "var(--twenty-color-gray-60)",
+        "webstudio": "var(--ws-color-gray-600)",
+        "value": "#4b5563",
+        "description": "Secondary color for less prominent elements"
+      },
+      "background": {
+        "twenty": "var(--twenty-color-gray-0)",
+        "webstudio": "var(--ws-color-background)",
+        "value": "#ffffff",
+        "description": "Main background color"
+      },
+      "backgroundSecondary": {
+        "twenty": "var(--twenty-color-gray-10)",
+        "webstudio": "var(--ws-color-background-secondary)",
+        "value": "#f9fafb",
+        "description": "Secondary background for cards and panels"
+      },
+      "text": {
+        "twenty": "var(--twenty-color-gray-90)",
+        "webstudio": "var(--ws-color-text-primary)",
+        "value": "#111827",
+        "description": "Primary text color"
+      },
+      "textSecondary": {
+        "twenty": "var(--twenty-color-gray-70)",
+        "webstudio": "var(--ws-color-text-secondary)",
+        "value": "#374151",
+        "description": "Secondary text color"
+      },
+      "textMuted": {
+        "twenty": "var(--twenty-color-gray-50)",
+        "webstudio": "var(--ws-color-text-muted)",
+        "value": "#6b7280",
+        "description": "Muted text color for hints and labels"
+      },
+      "border": {
+        "twenty": "var(--twenty-color-gray-20)",
+        "webstudio": "var(--ws-color-border)",
+        "value": "#e5e7eb",
+        "description": "Default border color"
+      },
+      "borderFocus": {
+        "twenty": "var(--twenty-color-blue-60)",
+        "webstudio": "var(--ws-color-border-focus)",
+        "value": "#3b82f6",
+        "description": "Focus state border color"
+      },
+      "success": {
+        "twenty": "var(--twenty-color-green-60)",
+        "webstudio": "var(--ws-color-success)",
+        "value": "#10b981",
+        "description": "Success state color"
+      },
+      "warning": {
+        "twenty": "var(--twenty-color-yellow-60)",
+        "webstudio": "var(--ws-color-warning)",
+        "value": "#f59e0b",
+        "description": "Warning state color"
+      },
+      "error": {
+        "twenty": "var(--twenty-color-red-60)",
+        "webstudio": "var(--ws-color-error)",
+        "value": "#ef4444",
+        "description": "Error state color"
+      }
+    },
+    "typography": {
+      "fontFamily": {
+        "primary": {
+          "twenty": "var(--twenty-font-family)",
+          "webstudio": "var(--ws-font-family-primary)",
+          "value": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+          "description": "Primary font family for UI text"
+        },
+        "mono": {
+          "twenty": "var(--twenty-font-family-mono)",
+          "webstudio": "var(--ws-font-family-mono)",
+          "value": "'Roboto Mono', 'SF Mono', Monaco, monospace",
+          "description": "Monospace font for code and data"
+        }
+      },
+      "fontSize": {
+        "xs": {
+          "twenty": "var(--twenty-font-size-xs)",
+          "webstudio": "var(--ws-font-size-xs)",
+          "value": "0.75rem",
+          "lineHeight": "1rem"
+        },
+        "sm": {
+          "twenty": "var(--twenty-font-size-sm)",
+          "webstudio": "var(--ws-font-size-sm)",
+          "value": "0.875rem",
+          "lineHeight": "1.25rem"
+        },
+        "base": {
+          "twenty": "var(--twenty-font-size-base)",
+          "webstudio": "var(--ws-font-size-base)",
+          "value": "1rem",
+          "lineHeight": "1.5rem"
+        },
+        "lg": {
+          "twenty": "var(--twenty-font-size-lg)",
+          "webstudio": "var(--ws-font-size-lg)",
+          "value": "1.125rem",
+          "lineHeight": "1.75rem"
+        },
+        "xl": {
+          "twenty": "var(--twenty-font-size-xl)",
+          "webstudio": "var(--ws-font-size-xl)",
+          "value": "1.25rem",
+          "lineHeight": "1.75rem"
+        },
+        "2xl": {
+          "twenty": "var(--twenty-font-size-2xl)",
+          "webstudio": "var(--ws-font-size-2xl)",
+          "value": "1.5rem",
+          "lineHeight": "2rem"
+        }
+      },
+      "fontWeight": {
+        "normal": {
+          "twenty": "var(--twenty-font-weight-normal)",
+          "webstudio": "var(--ws-font-weight-normal)",
+          "value": "400"
+        },
+        "medium": {
+          "twenty": "var(--twenty-font-weight-medium)",
+          "webstudio": "var(--ws-font-weight-medium)",
+          "value": "500"
+        },
+        "semibold": {
+          "twenty": "var(--twenty-font-weight-semibold)",
+          "webstudio": "var(--ws-font-weight-semibold)",
+          "value": "600"
+        },
+        "bold": {
+          "twenty": "var(--twenty-font-weight-bold)",
+          "webstudio": "var(--ws-font-weight-bold)",
+          "value": "700"
+        }
+      }
+    },
+    "spacing": {
+      "xs": {
+        "twenty": "var(--twenty-spacing-1)",
+        "webstudio": "var(--ws-spacing-1)",
+        "value": "0.25rem"
+      },
+      "sm": {
+        "twenty": "var(--twenty-spacing-2)",
+        "webstudio": "var(--ws-spacing-2)",
+        "value": "0.5rem"
+      },
+      "md": {
+        "twenty": "var(--twenty-spacing-3)",
+        "webstudio": "var(--ws-spacing-3)",
+        "value": "0.75rem"
+      },
+      "lg": {
+        "twenty": "var(--twenty-spacing-4)",
+        "webstudio": "var(--ws-spacing-4)",
+        "value": "1rem"
+      },
+      "xl": {
+        "twenty": "var(--twenty-spacing-6)",
+        "webstudio": "var(--ws-spacing-6)",
+        "value": "1.5rem"
+      },
+      "2xl": {
+        "twenty": "var(--twenty-spacing-8)",
+        "webstudio": "var(--ws-spacing-8)",
+        "value": "2rem"
+      },
+      "3xl": {
+        "twenty": "var(--twenty-spacing-12)",
+        "webstudio": "var(--ws-spacing-12)",
+        "value": "3rem"
+      }
+    },
+    "borderRadius": {
+      "none": {
+        "twenty": "var(--twenty-border-radius-none)",
+        "webstudio": "var(--ws-border-radius-none)",
+        "value": "0"
+      },
+      "sm": {
+        "twenty": "var(--twenty-border-radius-sm)",
+        "webstudio": "var(--ws-border-radius-sm)",
+        "value": "0.125rem"
+      },
+      "md": {
+        "twenty": "var(--twenty-border-radius-md)",
+        "webstudio": "var(--ws-border-radius-md)",
+        "value": "0.375rem"
+      },
+      "lg": {
+        "twenty": "var(--twenty-border-radius-lg)",
+        "webstudio": "var(--ws-border-radius-lg)",
+        "value": "0.5rem"
+      },
+      "xl": {
+        "twenty": "var(--twenty-border-radius-xl)",
+        "webstudio": "var(--ws-border-radius-xl)",
+        "value": "0.75rem"
+      },
+      "full": {
+        "twenty": "var(--twenty-border-radius-full)",
+        "webstudio": "var(--ws-border-radius-full)",
+        "value": "9999px"
+      }
+    },
+    "shadows": {
+      "sm": {
+        "twenty": "var(--twenty-shadow-sm)",
+        "webstudio": "var(--ws-shadow-sm)",
+        "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)"
+      },
+      "md": {
+        "twenty": "var(--twenty-shadow-md)",
+        "webstudio": "var(--ws-shadow-md)",
+        "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)"
+      },
+      "lg": {
+        "twenty": "var(--twenty-shadow-lg)",
+        "webstudio": "var(--ws-shadow-lg)",
+        "value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)"
+      },
+      "xl": {
+        "twenty": "var(--twenty-shadow-xl)",
+        "webstudio": "var(--ws-shadow-xl)",
+        "value": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)"
+      }
+    }
+  },
+  "components": {
+    "button": {
+      "primary": {
+        "backgroundColor": "colors.primary",
+        "color": "colors.background",
+        "borderRadius": "borderRadius.md",
+        "padding": "spacing.sm spacing.lg",
+        "fontSize": "typography.fontSize.sm",
+        "fontWeight": "typography.fontWeight.medium",
+        "hover": {
+          "backgroundColor": "colors.primaryHover"
+        }
+      },
+      "secondary": {
+        "backgroundColor": "colors.backgroundSecondary",
+        "color": "colors.text",
+        "border": "1px solid colors.border",
+        "borderRadius": "borderRadius.md",
+        "padding": "spacing.sm spacing.lg",
+        "fontSize": "typography.fontSize.sm",
+        "fontWeight": "typography.fontWeight.medium",
+        "hover": {
+          "backgroundColor": "colors.border"
+        }
+      }
+    },
+    "input": {
+      "default": {
+        "backgroundColor": "colors.background",
+        "border": "1px solid colors.border",
+        "borderRadius": "borderRadius.md",
+        "padding": "spacing.sm spacing.md",
+        "fontSize": "typography.fontSize.sm",
+        "color": "colors.text",
+        "focus": {
+          "borderColor": "colors.borderFocus",
+          "outline": "2px solid colors.primary",
+          "outlineOffset": "2px"
+        }
+      }
+    },
+    "card": {
+      "default": {
+        "backgroundColor": "colors.background",
+        "border": "1px solid colors.border",
+        "borderRadius": "borderRadius.lg",
+        "padding": "spacing.xl",
+        "boxShadow": "shadows.sm"
+      }
+    },
+    "modal": {
+      "overlay": {
+        "backgroundColor": "rgba(0, 0, 0, 0.5)",
+        "backdropFilter": "blur(4px)"
+      },
+      "content": {
+        "backgroundColor": "colors.background",
+        "borderRadius": "borderRadius.xl",
+        "boxShadow": "shadows.xl",
+        "padding": "spacing.2xl"
+      }
+    }
+  },
+  "integration": {
+    "cssVariables": {
+      "generateFor": ["twenty", "webstudio"],
+      "prefix": {
+        "twenty": "--twenty-",
+        "webstudio": "--ws-"
+      }
+    },
+    "buildTools": {
+      "postcss": {
+        "plugins": ["postcss-custom-properties", "postcss-nested"]
+      },
+      "sass": {
+        "variables": true,
+        "mixins": true
+      }
+    },
+    "validation": {
+      "contrastRatio": {
+        "minimum": 4.5,
+        "preferred": 7
+      },
+      "colorBlindness": {
+        "test": ["protanopia", "deuteranopia", "tritanopia"]
+      }
+    }
+  }
+}

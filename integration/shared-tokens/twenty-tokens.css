@@ -1,0 +1,63 @@
+/* Generated CSS Variables for Twenty CRM */
+/* Auto-generated from design-system-mapping.json */
+
+:root {
+  /* Colors */
+  --twenty-color-blue-60: #3b82f6; /* Primary brand color for buttons, links, and accents */
+  --twenty-color-blue-70: #1d4ed8; /* Primary color hover state */
+  --twenty-color-gray-60: #4b5563; /* Secondary color for less prominent elements */
+  --twenty-color-gray-0: #ffffff; /* Main background color */
+  --twenty-color-gray-10: #f9fafb; /* Secondary background for cards and panels */
+  --twenty-color-gray-90: #111827; /* Primary text color */
+  --twenty-color-gray-70: #374151; /* Secondary text color */
+  --twenty-color-gray-50: #6b7280; /* Muted text color for hints and labels */
+  --twenty-color-gray-20: #e5e7eb; /* Default border color */
+  --twenty-color-blue-60: #3b82f6; /* Focus state border color */
+  --twenty-color-green-60: #10b981; /* Success state color */
+  --twenty-color-yellow-60: #f59e0b; /* Warning state color */
+  --twenty-color-red-60: #ef4444; /* Error state color */
+
+  /* Typography */
+  --twenty-font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /* fontFamily primary */
+  --twenty-font-family-mono: 'Roboto Mono', 'SF Mono', Monaco, monospace; /* fontFamily mono */
+  --twenty-font-size-xs: 0.75rem; /* fontSize xs */
+  --twenty-font-line-height-xs: 1rem;
+  --twenty-font-size-sm: 0.875rem; /* fontSize sm */
+  --twenty-font-line-height-sm: 1.25rem;
+  --twenty-font-size-base: 1rem; /* fontSize base */
+  --twenty-font-line-height-base: 1.5rem;
+  --twenty-font-size-lg: 1.125rem; /* fontSize lg */
+  --twenty-font-line-height-lg: 1.75rem;
+  --twenty-font-size-xl: 1.25rem; /* fontSize xl */
+  --twenty-font-line-height-xl: 1.75rem;
+  --twenty-font-size-2xl: 1.5rem; /* fontSize 2xl */
+  --twenty-font-line-height-2xl: 2rem;
+  --twenty-font-weight-normal: 400; /* fontWeight normal */
+  --twenty-font-weight-medium: 500; /* fontWeight medium */
+  --twenty-font-weight-semibold: 600; /* fontWeight semibold */
+  --twenty-font-weight-bold: 700; /* fontWeight bold */
+
+  /* Spacing */
+  --twenty-spacing-1: 0.25rem; /* xs */
+  --twenty-spacing-2: 0.5rem; /* sm */
+  --twenty-spacing-3: 0.75rem; /* md */
+  --twenty-spacing-4: 1rem; /* lg */
+  --twenty-spacing-6: 1.5rem; /* xl */
+  --twenty-spacing-8: 2rem; /* 2xl */
+  --twenty-spacing-12: 3rem; /* 3xl */
+
+  /* Border Radius */
+  --twenty-border-radius-none: 0; /* none */
+  --twenty-border-radius-sm: 0.125rem; /* sm */
+  --twenty-border-radius-md: 0.375rem; /* md */
+  --twenty-border-radius-lg: 0.5rem; /* lg */
+  --twenty-border-radius-xl: 0.75rem; /* xl */
+  --twenty-border-radius-full: 9999px; /* full */
+
+  /* Shadows */
+  --twenty-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05); /* sm */
+  --twenty-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* md */
+  --twenty-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* lg */
+  --twenty-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); /* xl */
+
+}

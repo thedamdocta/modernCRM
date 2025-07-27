@@ -1,0 +1,148 @@
+{
+  "version": "1.0.0",
+  "plugins": [
+    {
+      "id": "webstudio-builder",
+      "name": "Webstudio Visual Builder",
+      "version": "1.0.0",
+      "description": "Visual website builder integrated into Twenty CRM with AI-powered generation",
+      "type": "ui-plugin",
+      "status": "development",
+      "routes": [
+        {
+          "path": "/website-builder",
+          "component": "WebstudioBuilder",
+          "title": "Website Builder",
+          "icon": "IconBrush",
+          "permissions": ["website-builder:read", "website-builder:write"]
+        },
+        {
+          "path": "/website-builder/templates",
+          "component": "TemplateManager",
+          "title": "Templates",
+          "icon": "IconTemplate",
+          "permissions": ["website-builder:read"]
+        },
+        {
+          "path": "/website-builder/generated/:slug",
+          "component": "GeneratedTemplate",
+          "title": "Generated Template",
+          "dynamic": true,
+          "permissions": ["website-builder:read"]
+        }
+      ],
+      "backend": {
+        "graphql": {
+          "types": [
+            "WebTemplate",
+            "PromptLog",
+            "GeneratedModule"
+          ],
+          "resolvers": [
+            "WebTemplateResolver",
+            "PromptLogResolver",
+            "GeneratedModuleResolver"
+          ],
+          "mutations": [
+            "createWebTemplate",
+            "updateWebTemplate",
+            "deleteWebTemplate",
+            "generateFromPrompt"
+          ],
+          "queries": [
+            "webTemplates",
+            "webTemplate",
+            "promptLogs",
+            "generatedModules"
+          ]
+        },
+        "services": [
+          "WebTemplateService",
+          "PromptGenerationService",
+          "PluginRegistryService"
+        ],
+        "controllers": [
+          "PromptController"
+        ],
+        "endpoints": [
+          {
+            "path": "/api/prompt-generate",
+            "method": "POST",
+            "handler": "PromptController.generate",
+            "permissions": ["website-builder:write"]
+          },
+          {
+            "path": "/api/templates",
+            "method": "GET",
+            "handler": "WebTemplateController.list",
+            "permissions": ["website-builder:read"]
+          }
+        ]
+      },
+      "database": {
+        "entities": [
+          "WebTemplate",
+          "PromptLog",
+          "GeneratedModule"
+        ],
+        "migrations": [
+          "001_create_web_templates.sql",
+          "002_create_prompt_logs.sql",
+          "003_create_generated_modules.sql"
+        ]
+      },
+      "dependencies": {
+        "frontend": [
+          "@webstudio-is/builder",
+          "@webstudio-is/design-system",
+          "react-dnd",
+          "framer-motion"
+        ],
+        "backend": [
+          "@google/generative-ai",
+          "graphql-upload",
+          "archiver"
+        ]
+      },
+      "config": {
+        "ai": {
+          "provider": "gemini",
+          "model": "gemini-2.5-flash",
+          "maxTokens": 1000000
+        },
+        "storage": {
+          "generatedPath": "webstudio-plugin/generated",
+          "templatesPath": "webstudio-plugin/templates"
+        },
+        "features": {
+          "aiGeneration": true,
+          "templateLibrary": true,
+          "realTimePreview": true,
+          "crmIntegration": true
+        }
+      },
+      "designTokens": {
+        "source": "@webstudio-is/design-system",
+        "mapping": {
+          "colors": "twenty-ui/colors",
+          "typography": "twenty-ui/typography",
+          "spacing": "twenty-ui/spacing",
+          "components": "twenty-ui/components"
+        }
+      },
+      "metadata": {
+        "author": "Modern CRM Team",
+        "license": "AGPL-3.0",
+        "repository": "https://github.com/moderncrm/integration",
+        "documentation": "https://docs.moderncrm.dev/plugins/webstudio",
+        "tags": ["visual-builder", "ai", "templates", "website"]
+      }
+    }
+  ],
+  "generated": {
+    "lastUpdate": "2025-01-26T19:27:00Z",
+    "totalPlugins": 1,
+    "activePlugins": 0,
+    "developmentPlugins": 1
+  }
+}

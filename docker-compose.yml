@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: moderncrm-postgres
+    environment:
+      POSTGRES_DB: moderncrm
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: moderncrm-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Twenty CRM Database (separate instance for isolation)
+  twenty-postgres:
+    image: postgres:15
+    container_name: twenty-postgres
+    environment:
+      POSTGRES_DB: twenty
+      POSTGRES_USER: twenty
+      POSTGRES_PASSWORD: twenty
+    ports:
+      - "5433:5432"
+    volumes:
+      - twenty_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U twenty"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Webstudio Database (separate instance for isolation)
+  webstudio-postgres:
+    image: postgres:15
+    container_name: webstudio-postgres
+    environment:
+      POSTGRES_DB: webstudio
+      POSTGRES_USER: webstudio
+      POSTGRES_PASSWORD: webstudio
+    ports:
+      - "5434:5432"
+    volumes:
+      - webstudio_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U webstudio"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+  redis_data:
+  twenty_postgres_data:
+  webstudio_postgres_data:
+
+networks:
+  default:
+    name: moderncrm-network

@@ -1,0 +1,25 @@
+{
+  "webTemplate": {
+    "name": "page_1753573711729_krq79",
+    "slug": "page-1753573711729-krq79",
+    "templateType": "page",
+    "status": "generated",
+    "createdAt": "2025-07-26T23:48:31.729Z"
+  },
+  "promptLog": {
+    "prompt": "Create a landing page for real estate agents with hero section, services, and lead capture form",
+    "generatedFiles": [
+      {
+        "path": "integration/plugins/generated/page_1753573711729_z4dw0/page_1753573711729_z4dw0.tsx",
+        "type": "component"
+      },
+      {
+        "path": "integration/plugins/generated/page_1753573711729_z4dw0/plugin.json",
+        "type": "config"
+      }
+    ],
+    "timestamp": "2025-07-26T23:48:31.729Z",
+    "status": "success",
+    "featureType": "page"
+  }
+}
